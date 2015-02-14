@@ -15,4 +15,4 @@ if [ -n "$ELASTICSEARCH_PORT_9200_TCP_PORT" ]; then
 fi
 printf '%s\n' "$config" >/etc/logstash/logstash.conf
 
-exec "$@"
+eval "$@"
