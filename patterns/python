@@ -1,1 +1,1 @@
-PYTHON \[%{TIME:timestamp}\]\[%{LOGLEVEL:loglevel}\] %{DATA:module}:%{DATA:exception}:%{POSINT:line} \| %{DATA:error_msg}\n%{GREEDYDATA}
+PYTHON \[%{TIME:timestamp}\]\[%{LOGLEVEL:loglevel}\] %{DATA:module}:%{DATA:exception}:%{POSINT:line} \| %{GREEDYDATA}
