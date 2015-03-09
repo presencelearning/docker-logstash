@@ -1,4 +1,4 @@
-FROM ablerman/base
+FROM fgaudin/base:1
 MAINTAINER Francois Gaudin <francois@presencelearning.com>
 
 RUN groupadd logstash -g 105043 && useradd logstash -u 105043 -d /opt/logstash -s /usr/sbin/nologin -g 105043
@@ -11,13 +11,12 @@ RUN \
   apt-get update && \
   apt-get install -y oracle-java8-installer && \
   rm -rf /var/lib/apt/lists/* && \
-  rm -rf /var/cache/oracle-jdk8-installer
+  rm -rf /var/cache/oracle-jdk8-installer && \
+  wget -O logstash.tar.gz https://download.elasticsearch.org/logstash/logstash/logstash-1.4.2.tar.gz && \
+  mkdir -p /opt/logstash && tar xzf logstash.tar.gz -C /opt/logstash --strip-components=1 && \
+  rm logstash.tar.gz
 
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
-
-RUN wget -O logstash.tar.gz https://download.elasticsearch.org/logstash/logstash/logstash-1.4.2.tar.gz \
-  && mkdir -p /opt/logstash && tar xzf logstash.tar.gz -C /opt/logstash --strip-components=1 \
-  && rm logstash.tar.gz
 
 RUN mkdir -p /mnt/logstash-forwarder
 
