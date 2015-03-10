@@ -35,7 +35,7 @@ RUN mkdir -p /opt/logstash/certificates
 
 USER root
 
-EXPOSE 5043
+EXPOSE 5043 9500
 
 VOLUME ["/opt/logstash/certificates"]
 
