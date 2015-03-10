@@ -1,4 +1,4 @@
-FROM fgaudin/base:1
+FROM fgaudin/base:2
 MAINTAINER Francois Gaudin <francois@presencelearning.com>
 
 RUN groupadd logstash -g 105043 && useradd logstash -u 105043 -d /opt/logstash -s /usr/sbin/nologin -g 105043
