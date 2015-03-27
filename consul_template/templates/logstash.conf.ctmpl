@@ -33,7 +33,7 @@ filter {
 output {
   elasticsearch {
     protocol => "http"
-    {{ with service "elasticsearch-9200" }}{{ with index . 0 }}host => "{{.Address}}"
+    {{ with service "elasticsearch-elk-9200" }}{{ with index . 0 }}host => "{{.Address}}"
     port => "{{.Port}}"{{ end }}{{ end }}
   }
 }

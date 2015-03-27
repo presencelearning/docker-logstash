@@ -5,7 +5,7 @@ RUN groupadd logstash -g 105043 && useradd logstash -u 105043 -d /opt/logstash -
 
 # Install Java.
 RUN \
-  apt-get -y install software-properties-common && \
+  apt-get update && apt-get -y install software-properties-common && \
   echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
   add-apt-repository -y ppa:webupd8team/java && \
   apt-get update && \
